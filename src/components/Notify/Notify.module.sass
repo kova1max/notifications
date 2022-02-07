@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap')
+
+$offsetY: 40px
+$offsetX: 20px
+
+$defaultBackgroundColor: #f5f5f566
+$successBackgroundColor: #2affa973
+$infoBackgroundColor: #3debff70
+$warningBackgroundColor: #ffd70069
+$errorBackgroundColor: #ff696969
+
+.notifyContainer
+  display: flex
+  flex-direction: column-reverse
+  position: fixed
+  right: $offsetX
+  bottom: $offsetY
+  height: 100vh
+  width: 16vw
+  box-sizing: border-box
+
+.notifyItem
+  position: relative
+  font-family: "DM Sans", sans-serif
+  font-size: 14px
+  background: $defaultBackgroundColor
+  border-left: 20px solid $defaultBackgroundColor
+  border-radius: 3px
+  right: -17vw
+  padding: 20px 40px
+  margin-top: 20px
+  backdrop-filter: blur(8px)
+  cursor: default
+  box-sizing: border-box
+  transition: .5s
+  transform: scaleY(0.1)
+  animation: 6s Slide ease-in 1 forwards
+
+  &.active
+    right: 0!important
+
+  span
+    display: block
+    font-weight: bold
+    text-transform: uppercase
+    margin-bottom: 5px
+
+  &.success
+    background: $successBackgroundColor
+    border-left: 20px solid $successBackgroundColor
+
+  &.info
+    background: $infoBackgroundColor
+    border-left: 20px solid $infoBackgroundColor
+
+  &.warning
+    background: $warningBackgroundColor
+    border-left: 20px solid $warningBackgroundColor
+
+  &.error
+    background: $errorBackgroundColor
+    border-left: 20px solid $errorBackgroundColor
+
+@keyframes Slide
+  0%
+    right: -18vw
+    transform: scaleY(0.1)
+  8%
+    right: 0
+    transform: scaleY(0.1)
+  9%
+    transform: scaleY(1.1)
+  10%
+    transform: scaleY(1)
+  89%
+    right: 0
+    transform: scaleY(1)
+  90%
+    transform: scaleY(1.1)
+  91%
+    transform: scaleY(0.1)
+  92%
+    right: -18vw
